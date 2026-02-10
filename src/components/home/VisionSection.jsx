@@ -7,7 +7,7 @@ export default function VisionSection() {
     <section className="py-32 bg-black relative overflow-hidden">
       {/* Large gradient orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-purple-500/10 rounded-full blur-[120px]" />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Content */}
@@ -21,10 +21,10 @@ export default function VisionSection() {
               Redefining Agriculture
               <span className="block text-gray-500">Through Intelligence</span>
             </h2>
-            
+
             <p className="text-gray-400 text-lg mt-6 leading-relaxed">
-              At Parambhariya, we believe the future of food isn't in vast farmlands — 
-              it's in intelligent, distributed systems that can operate anywhere, 
+              At Parambhariya, we believe the future of food isn't in vast farmlands —
+              it's in intelligent, distributed systems that can operate anywhere,
               at any scale, with perfect precision.
             </p>
 
@@ -46,7 +46,7 @@ export default function VisionSection() {
                   description: 'From local farms to global networks, our platform scales infinitely.'
                 }
               ].map((item, i) => (
-                <motion.div 
+                <motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -74,23 +74,31 @@ export default function VisionSection() {
             className="relative"
           >
             <div className="relative aspect-square rounded-3xl overflow-hidden border border-gray-800">
-              <img 
+              <img
                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop"
                 alt="Technology visualization"
                 className="w-full h-full object-cover opacity-60"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black via-transparent to-transparent" />
-              
+
               {/* Floating data cards */}
-              <div className="absolute top-8 right-8 p-4 rounded-xl bg-black/80 border border-emerald-500/30 backdrop-blur-sm">
+              <motion.div
+                className="absolute top-8 right-8 p-4 rounded-xl bg-black/80 border border-emerald-500/30 backdrop-blur-sm"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              >
                 <div className="text-emerald-400 text-xs font-mono">YIELD OPTIMIZATION</div>
                 <div className="text-white text-2xl font-bold mt-1">+340%</div>
-              </div>
-              
-              <div className="absolute bottom-8 left-8 p-4 rounded-xl bg-black/80 border border-cyan-500/30 backdrop-blur-sm">
+              </motion.div>
+
+              <motion.div
+                className="absolute bottom-8 left-8 p-4 rounded-xl bg-black/80 border border-cyan-500/30 backdrop-blur-sm"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+              >
                 <div className="text-cyan-400 text-xs font-mono">RESOURCE EFFICIENCY</div>
                 <div className="text-white text-2xl font-bold mt-1">92.7%</div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

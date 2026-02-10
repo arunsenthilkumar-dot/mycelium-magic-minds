@@ -97,6 +97,13 @@ const solutions = [
   }
 ];
 
+const solutionRoutes = {
+  'micro-factories': '/MicroFactories',
+  'iot-sensors': '/IoTSensors',
+  'mycelium-packaging': '/MyceliumPackaging',
+  'platform': '/IntelligentPlatform'
+};
+
 export default function Technology() {
   const [demoModal, setDemoModal] = useState({ isOpen: false, solution: null });
 
@@ -106,8 +113,8 @@ export default function Technology() {
 
   return (
     <div className="bg-black min-h-screen">
-      <DemoRequestModal 
-        isOpen={demoModal.isOpen} 
+      <DemoRequestModal
+        isOpen={demoModal.isOpen}
         onClose={() => setDemoModal({ isOpen: false, solution: null })}
         solution={demoModal.solution}
       />
@@ -115,7 +122,7 @@ export default function Technology() {
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,136,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,136,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[150px]" />
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -130,7 +137,7 @@ export default function Technology() {
               </span>
             </h1>
             <p className="text-gray-400 text-xl mt-6">
-              Four integrated solutions working in perfect harmony. 
+              Four integrated solutions working in perfect harmony.
               Hardware, software, AI, and sustainable materials — unified under one ecosystem.
             </p>
           </motion.div>
@@ -151,7 +158,7 @@ export default function Technology() {
                 <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${solution.gradient} mb-6`}>
                   <solution.icon className="w-10 h-10 text-white" />
                 </div>
-                
+
                 <p className="text-gray-500 font-mono text-sm tracking-widest mb-2">{solution.subtitle}</p>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{solution.title}</h2>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">{solution.description}</p>
@@ -165,13 +172,23 @@ export default function Technology() {
                   ))}
                 </div>
 
-                <Button 
-                  onClick={() => openDemoModal(solution.id)}
-                  className={`bg-gradient-to-r ${solution.gradient} text-white hover:opacity-90 rounded-full px-8`}
-                >
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Schedule Demo
-                </Button>
+                <div className="flex flex-wrap gap-3">
+                  <Link to={solutionRoutes[solution.id]}>
+                    <Button
+                      className="bg-white/10 text-white hover:bg-white/20 rounded-full px-8"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Button
+                    onClick={() => openDemoModal(solution.id)}
+                    className={`bg-gradient-to-r ${solution.gradient} text-white hover:opacity-90 rounded-full px-8`}
+                  >
+                    <Calendar className="mr-2 h-4 w-4" />
+                    Schedule Demo
+                  </Button>
+                </div>
               </motion.div>
 
               <motion.div
@@ -207,7 +224,7 @@ export default function Technology() {
       {/* Integration Section */}
       <section className="py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent" />
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -219,7 +236,7 @@ export default function Technology() {
               One Ecosystem. <span className="text-gray-500">Infinite Possibilities.</span>
             </h2>
             <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-              All three systems communicate seamlessly, creating a closed-loop 
+              All three systems communicate seamlessly, creating a closed-loop
               intelligence network that gets smarter with every harvest cycle.
             </p>
           </motion.div>

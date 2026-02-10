@@ -43,7 +43,7 @@ export default function ProductsProof() {
               <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"> Taste</span>
             </h2>
             <p className="text-gray-400 mt-4 max-w-xl">
-              Our products aren't just products — they're proof that our technology works. 
+              Our products aren't just products — they're proof that our technology works.
               Every item demonstrates the power of our AI-driven cultivation systems.
             </p>
           </div>
@@ -61,14 +61,15 @@ export default function ProductsProof() {
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -8 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
               className="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer"
             >
               {/* Image */}
               <div className="absolute inset-0">
-                <img 
-                  src={category.image} 
+                <img
+                  src={category.image}
                   alt={category.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -83,7 +84,7 @@ export default function ProductsProof() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
                 <p className="text-gray-400 text-sm">{category.description}</p>
-                
+
                 <div className="mt-4 flex items-center gap-2 text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                   <span>Explore</span>
                   <ArrowRight className="w-4 h-4" />

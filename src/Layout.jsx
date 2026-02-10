@@ -34,10 +34,9 @@ export default function Layout({ children, currentPageName }) {
   return (
     <div className="min-h-screen bg-black">
       {/* Navigation */}
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-black/80 backdrop-blur-xl border-b border-gray-800' : 'bg-transparent'
-        }`}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-xl border-b border-gray-800' : 'bg-transparent'
+          }`}
       >
         <nav className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -52,16 +51,28 @@ export default function Layout({ children, currentPageName }) {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <Link 
+                <Link
                   key={link.page}
                   to={createPageUrl(link.page)}
-                  className={`text-sm font-medium transition-colors ${
-                    currentPageName === link.page 
-                      ? 'text-emerald-400' 
-                      : 'text-gray-400 hover:text-white'
-                  }`}
+                  className="relative group"
                 >
-                  {link.name}
+                  <motion.span
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`text-sm font-medium transition-colors inline-block ${currentPageName === link.page
+                      ? 'text-emerald-400'
+                      : 'text-gray-400 hover:text-white'
+                      }`}
+                  >
+                    {link.name}
+                  </motion.span>
+                  {currentPageName === link.page && (
+                    <motion.div
+                      layoutId="activeNavUnderline"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
                 </Link>
               ))}
             </div>
@@ -69,14 +80,16 @@ export default function Layout({ children, currentPageName }) {
             {/* CTA Button */}
             <div className="hidden md:block">
               <Link to={createPageUrl('Contact')}>
-                <Button className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-semibold rounded-full px-6 hover:opacity-90">
-                  Get Started
-                </Button>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-semibold rounded-full px-6 hover:opacity-90">
+                    Get Started
+                  </Button>
+                </motion.div>
               </Link>
             </div>
 
             {/* Mobile Menu Button */}
-            <button 
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 text-white"
             >
@@ -96,14 +109,13 @@ export default function Layout({ children, currentPageName }) {
             >
               <div className="px-6 py-6 space-y-4">
                 {navLinks.map((link) => (
-                  <Link 
+                  <Link
                     key={link.page}
                     to={createPageUrl(link.page)}
-                    className={`block text-lg font-medium ${
-                      currentPageName === link.page 
-                        ? 'text-emerald-400' 
-                        : 'text-gray-300'
-                    }`}
+                    className={`block text-lg font-medium ${currentPageName === link.page
+                      ? 'text-emerald-400'
+                      : 'text-gray-300'
+                      }`}
                   >
                     {link.name}
                   </Link>
@@ -138,8 +150,8 @@ export default function Layout({ children, currentPageName }) {
                 <span className="text-white font-bold text-xl">Parambhariya</span>
               </div>
               <p className="text-gray-400 max-w-md">
-                Building the future of agriculture through AI-powered technology, 
-                IoT sensors, and intelligent platforms.
+                Building the future of agriculture through AI-powered technology,
+                IoT sensors, and Inteligent Platforms.
               </p>
             </div>
 
@@ -147,14 +159,21 @@ export default function Layout({ children, currentPageName }) {
             <div>
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <div className="space-y-3">
-                {['About', 'Technology', 'Products', 'Contact'].map((item) => (
-                  <Link 
+                {['About', 'Technology', 'Products', 'Contact'].map((item, index) => (
+                  <motion.div
                     key={item}
-                    to={createPageUrl(item)}
-                    className="block text-gray-400 hover:text-white transition-colors"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    {item}
-                  </Link>
+                    <Link
+                      to={createPageUrl(item)}
+                      className="block text-gray-400 hover:text-white transition-colors"
+                    >
+                      {item}
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -164,16 +183,21 @@ export default function Layout({ children, currentPageName }) {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3 text-gray-400">
                 <p>contact@parambhariya.com</p>
-                <p>Bangalore, Karnataka</p>
+                <p>Coimbatore, Tamil Nadu</p>
                 <p>India</p>
               </div>
             </div>
           </div>
 
           <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-gray-500 text-sm"
+            >
               © 2025 Parambhariya. All rights reserved.
-            </p>
+            </motion.p>
             <div className="flex gap-6 text-gray-500 text-sm">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

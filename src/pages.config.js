@@ -50,7 +50,11 @@
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import IntelligentPlatform from './pages/IntelligentPlatform';
 import Investors from './pages/Investors';
+import IoTSensors from './pages/IoTSensors';
+import MicroFactories from './pages/MicroFactories';
+import MyceliumPackaging from './pages/MyceliumPackaging';
 import Products from './pages/Products';
 import Technology from './pages/Technology';
 import __Layout from './Layout.jsx';
@@ -60,7 +64,11 @@ export const PAGES = {
     "About": About,
     "Contact": Contact,
     "Home": Home,
+    "IntelligentPlatform": IntelligentPlatform,
     "Investors": Investors,
+    "IoTSensors": IoTSensors,
+    "MicroFactories": MicroFactories,
+    "MyceliumPackaging": MyceliumPackaging,
     "Products": Products,
     "Technology": Technology,
 }

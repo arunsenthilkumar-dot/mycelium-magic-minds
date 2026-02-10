@@ -1,39 +1,59 @@
-**Welcome to your Base44 project** 
+# Parambhariya
 
-**About**
+**Fungi Forward Ecosystem — AI-Powered Sustainable Agriculture**
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+Parambhariya is building the future of sustainable agriculture through AI-optimized micro-factories for mushroom cultivation.
 
-This project contains everything you need to run your app locally.
+## Getting Started
 
-**Edit the code in your local development environment**
+### Prerequisites
+- Node.js 18+
+- npm
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+### Installation
 
-**Prerequisites:** 
+```bash
+# Clone the repository
+git clone <your-repo-url>
 
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+# Navigate to the project directory
+cd mycelium-magic-minds
 
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.example .env.local
+# Edit .env.local with your configuration
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
 
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+### Development
+
+```bash
+npm run dev
 ```
 
-Run the app: `npm run dev`
+### Build
 
-**Publish your changes**
+```bash
+npm run build
+```
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+### Preview Production Build
 
-**Docs & Support**
+```bash
+npm run preview
+```
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
+## Tech Stack
 
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+- **Frontend**: React 18 + Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Routing**: React Router DOM
+- **UI Components**: Radix UI + shadcn/ui
+- **State Management**: TanStack React Query
+
+## License
+
+© 2026 Parambhariya. All rights reserved.

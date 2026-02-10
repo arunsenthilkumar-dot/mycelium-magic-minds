@@ -34,7 +34,7 @@ export default function TechnologyPreview() {
     <section className="py-32 bg-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,136,0.05),transparent_70%)]" />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,22 +55,23 @@ export default function TechnologyPreview() {
               key={tech.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -8, scale: 1.02 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="group relative"
+              className="group relative cursor-pointer"
             >
               <div className="relative p-8 rounded-2xl border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-gray-700 transition-all duration-500 h-full">
                 {/* Glow effect on hover */}
                 <div className={`absolute inset-0 ${tech.bgGlow} rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
-                
+
                 <div className="relative z-10">
                   <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${tech.gradient} mb-6`}>
                     <tech.icon className="w-8 h-8 text-white" />
                   </div>
-                  
+
                   <h3 className="text-2xl font-bold text-white mb-4">{tech.title}</h3>
                   <p className="text-gray-400 leading-relaxed mb-6">{tech.description}</p>
-                  
+
                   <div className="flex items-center text-emerald-400 font-medium group-hover:gap-3 gap-2 transition-all">
                     <span>Learn more</span>
                     <ArrowRight className="w-4 h-4" />
@@ -81,7 +82,7 @@ export default function TechnologyPreview() {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
